@@ -6,7 +6,18 @@ import './index.sass';
 
 import App from './components/App/App';
 
+import initState from './redux/initState';
+import redd from './redux/red';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+
+let market = createStore ( redd, initState );
+
+ReactDOM.render(
+    <Provider store = { market } >
+        <App />
+    </Provider>
+    , document.getElementById('root'));
 
 
