@@ -1,0 +1,22 @@
+.PO1Unit {
+    position: absolute;
+    width : 90px;
+    height : 50px;    
+}
+.PO1UnitLab {
+    position: absolute;
+    width: 100%;
+    top: 5px;
+    left: 0px;
+    text-align: center;
+}
+.PO1UnitCh {
+    position: absolute;
+    width: 90px;
+    height: 20px;
+    left: 50%;
+    top: 50%;
+    margin-left: -45px;
+    margin-top: 5px;
+    text-align: center;
+}

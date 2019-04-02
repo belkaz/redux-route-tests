@@ -1,0 +1,22 @@
+.SinglePO {
+    position: absolute;
+    width : 50px;
+    height : 50px;   
+    left: 50px;
+}
+.SinglePOLab {
+    position: absolute;
+    width: 100%;
+    top: 5px;
+    left: 0px;
+    text-align: center;
+}
+.SinglePOCh {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 50%;
+    top: 50%;
+    margin-left: -10px;
+    margin-top: 5px;
+}
