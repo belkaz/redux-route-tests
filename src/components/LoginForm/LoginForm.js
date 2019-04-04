@@ -36,6 +36,7 @@ class CLoginForm extends Component {
                 <Button   
                     variant = 'primary'               
                     className = 'FormBut'
+                    id = 'qq'
                     onClick = { this.tryLogin } >
                     Submit
                 </Button>  

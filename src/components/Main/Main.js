@@ -4,7 +4,9 @@ import './Main.sass';
 
 import { Tabs, Tab, Sonnet } from 'react-bootstrap';
 
+import CUserInfo from './UserInfo/UserInfo';
 import DisplayRights from './DisplayRights/DisplayRights';
+
 
 class CMain extends Component {
     constructor ( props ) {
@@ -24,7 +26,7 @@ class CMain extends Component {
                         eventKey="profile" 
                         title="Profile"
                         className = 'Tab'>
-                        q2
+                        <CUserInfo />
                     </Tab>
                     <Tab
                         eventKey="home" 
