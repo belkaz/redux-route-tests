@@ -6,7 +6,7 @@ import { Tabs, Tab, Sonnet } from 'react-bootstrap';
 
 import CUserInfo from './UserInfo/UserInfo';
 import DisplayRights from './DisplayRights/DisplayRights';
-
+import CTasks from './Tasks/Tasks';
 
 class CMain extends Component {
     constructor ( props ) {
@@ -20,8 +20,14 @@ class CMain extends Component {
             <div className = 'Main'>
                 <p>Welcome, master</p>
                 <Tabs 
-                    defaultActiveKey="profile" 
+                    defaultActiveKey="watch" 
                     className = 'MainTabs'>
+                    <Tab 
+                        eventKey="watch" 
+                        title="Tasks"
+                        className = 'Tab'>
+                        <CTasks />
+                    </Tab>
                     <Tab 
                         eventKey="profile" 
                         title="Profile"
@@ -33,13 +39,7 @@ class CMain extends Component {
                         title="Rights"
                         className = 'Tab'>
                         <DisplayRights />
-                    </Tab>                    
-                    <Tab 
-                        eventKey="contact" 
-                        title="Contact"
-                        className = 'Tab'>
-                        q3
-                    </Tab>
+                    </Tab>                
                 </Tabs>
             </div>
         )
