@@ -23,9 +23,11 @@ class CUnclosedTasks extends Component {
                     <Card.Text>
                         { this.props.taskInfo}
                     </Card.Text>
-                    <Button variant="primary">Close task</Button>
+                    <Button 
+                        variant="primary"
+                        onClick = { ()=> {alert()}}>Close task</Button>
                 </Card.Body>
-                <Card.Footer className="text-muted">{ this.props.taskEnd }</Card.Footer>
+                <Card.Footer className="text-muted">{ this.props.taskRes }</Card.Footer>
                 </Card>
             </div>
         )

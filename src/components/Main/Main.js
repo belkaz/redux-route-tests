@@ -2,19 +2,13 @@ import React, { Component } from 'react';
 
 import './Main.sass';
 
-import { Tabs, Tab, Sonnet } from 'react-bootstrap';
+import { Tabs, Tab } from 'react-bootstrap';
 
 import CUserInfo from './UserInfo/UserInfo';
 import DisplayRights from './DisplayRights/DisplayRights';
 import CTasks from './Tasks/Tasks';
 
 class CMain extends Component {
-    constructor ( props ) {
-        super ( props );
-        this.state = {
-            
-        }
-    }
     render() {
         return (
             <div className = 'Main'>
@@ -38,7 +32,7 @@ class CMain extends Component {
                         eventKey="home" 
                         title="Rights"
                         className = 'Tab'>
-                        <DisplayRights />
+                        {/* <DisplayRights /> */}
                     </Tab>                
                 </Tabs>
             </div>

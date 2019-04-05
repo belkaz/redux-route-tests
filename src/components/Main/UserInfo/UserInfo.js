@@ -5,9 +5,12 @@ import { Form, Button } from 'react-bootstrap';
 import './UserInfo.sass';
 
 class CUserInfo extends Component {
+    
     render() {
         return (
-            <div className = 'UserInfo'>
+            <div 
+                className = 'UserInfo'                
+                >
                 <Form
                     className = 'UIForm'>
                     <Form.Control 
