@@ -3,6 +3,7 @@ import initState from './initState';
 let redd = ( state = initState, action ) => {
     switch ( action.type ) {
         case 'ALOGIN' : 
+            //send data to server & check 
             return {
                 ...state,
                 curUser : action.newUser,
@@ -14,7 +15,8 @@ let redd = ( state = initState, action ) => {
                 if (el.IND != action.idToClose) {
                     tt.push (el)
                 }
-            })            
+            })     
+            //send changes to serverAPI       
             return {
                 ...state, 
                 tasks : tt

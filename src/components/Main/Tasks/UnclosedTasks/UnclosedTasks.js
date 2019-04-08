@@ -7,19 +7,15 @@ import { Card , Button } from 'react-bootstrap';
 import ACloseTask from '../../../../redux/actions/closeTask';
 import { connect } from 'react-redux';
 
-class CUnclosedTasks extends Component {    
-    st = {
-        'left' : this.props.lef,
-        'top' : this.props.to
-    }
+class CUnclosedTasks extends Component {       
     render() {
         return (
             <div 
                 className = 'UnclosedTasks'
                 >
                 <Card 
-                    className="text-center UTCard"
-                    style = { this.st }>
+                    className="text-center UTCard"                    
+                    >
                 <Card.Header>{ this.props.taskType }</Card.Header>
                 <Card.Body>
                     <Card.Title>{ this.props.taskStart}</Card.Title>

@@ -8,16 +8,9 @@ import CAddTasks from './AddTask/AddTask';
 
 import { connect } from 'react-redux';
 
-class CTasks extends Component {
-    innerClickHandler = (i) => {
-        alert (i)
-    }
-    genTasks = () => {
-        let lefts = [40, 350, 660];
-        let tops = [10, 270, 530];
+class CTasks extends Component {    
+    genTasks = () => {        
         let mm = [];
-        let i = 0;
-        let y = 0;
         this.props.tasks.forEach ( (el) => {  
             if ( el.TASK_CLOSE === "-" ) {
                 switch ( el.TYPE ) {
@@ -25,9 +18,7 @@ class CTasks extends Component {
                     {
                         mm.push(<CUnclosedTasks 
                             key = { el.IND }
-                            id = { el.IND }
-                            lef  = { lefts[i] + 'px'}
-                            to   = { tops[y] + 'px'}
+                            id = { el.IND }                            
                             taskType = 'ВРЕМЕННЫЙ ПЕРЕВОД'
                             taskStart = { el.START }
                             taskInfo = { el.WHO + ' ' +el.FROM +'->' + el.TO }
@@ -40,9 +31,7 @@ class CTasks extends Component {
                     {
                         mm.push(<CUnclosedTasks 
                             key = { el.IND }
-                            id = { el.IND }
-                            lef  = { lefts[i] + 'px'}
-                            to   = { tops[y] + 'px'}
+                            id = { el.IND }                            
                             taskType = "ВРЕМЕННЫЕ ПРАВА"
                             taskStart = { el.END }
                             taskInfo = { el.WHO + ' ' +el.UNIT }
@@ -55,8 +44,7 @@ class CTasks extends Component {
                         mm.push(<CUnclosedTasks 
                             key = { el.IND }
                             id = { el.IND }
-                            lef  = { lefts[i] + 'px'}
-                            to   = { tops[y] + 'px'}
+                           
                             taskType = "ЗАКРЫТЬ ПРАВА"
                             taskStart = { el.CLOSE_DATE }
                             taskInfo = { el.WHO }
@@ -64,12 +52,7 @@ class CTasks extends Component {
                         </CUnclosedTasks>)
                     };
                     break;
-                }              
-                i += 1;
-                if ( i === 3) {
-                    i =0;
-                    y += 1;
-                }
+                }        
             }                
         })
         
