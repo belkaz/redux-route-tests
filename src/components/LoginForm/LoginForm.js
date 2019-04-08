@@ -5,7 +5,7 @@ import { Form, Button } from 'react-bootstrap';
 import { connect } from 'react-redux';
 
 import './LoginForm.sass';
-import ALogin from '../../redux/act';
+import ALogin from '../../redux/actions/act';
 
 class CLoginForm extends Component {    
     tryLogin = () => {    

@@ -4,7 +4,10 @@ import './UnclosedTasks.sass';
 
 import { Card , Button } from 'react-bootstrap';
 
-class CUnclosedTasks extends Component {
+import ACloseTask from '../../../../redux/actions/closeTask';
+import { connect } from 'react-redux';
+
+class CUnclosedTasks extends Component {    
     st = {
         'left' : this.props.lef,
         'top' : this.props.to
@@ -25,7 +28,9 @@ class CUnclosedTasks extends Component {
                     </Card.Text>
                     <Button 
                         variant="primary"
-                        onClick = { () => {} }>Close task</Button>
+                        onClick = { () => { 
+                            this.props.tryCloseTask ( this.props.id )
+                        }}>Close task</Button>
                 </Card.Body>
                 <Card.Footer className="text-muted">{ this.props.taskRes }</Card.Footer>
                 </Card>
@@ -34,4 +39,13 @@ class CUnclosedTasks extends Component {
     }
 }
 
-export default CUnclosedTasks
+let mapState = state => {
+    return {}
+}
+
+let masDispatch = dispatch => {
+    return {
+        tryCloseTask: id => dispatch ( ACloseTask (id) )
+    }
+}
+export default connect(mapState, masDispatch) (CUnclosedTasks)

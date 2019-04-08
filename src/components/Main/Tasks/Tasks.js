@@ -6,53 +6,9 @@ import { Button } from 'react-bootstrap';
 import CUnclosedTasks from './UnclosedTasks/UnclosedTasks';
 import CAddTasks from './AddTask/AddTask';
 
+import { connect } from 'react-redux';
+
 class CTasks extends Component {
-    constructor ( props ) {
-        super ( props );
-        this.state = {
-            tasks : [
-                {
-                    "WHO" : "IvanovVV",
-                    "REASON" : "2019-04-05_123123",
-                    "TYPE" : "TRANSFER",
-                    "FROM" : "1",
-                    "TO" : "2",
-                    "START" : "2019-04-05_10",
-                    "END" : "2019-04-05_22",
-                    "TASK_CLOSE" : "-",
-                    "IND" : 0       
-                },
-                {
-                    "WHO" : "IvanovVV",
-                    "REASON" : "2019-04-05_3213123",
-                    "TYPE" : "TRANSFER",
-                    "FROM" : "2",
-                    "TO" : "1",
-                    "START" : "2019-04-12_10",
-                    "END" : "2019-04-12_22" ,
-                    "TASK_CLOSE" : "-"  ,
-                    "IND" : 1          
-                },
-                {
-                    "WHO" : "IvanovVV",
-                    "REASON" : "2019-04-05_3213123",
-                    "TYPE" : "TEMP ADD RIGHTS",
-                    "UNIT" : "2",           
-                    "END" : "2019-04-12_22", 
-                    "TASK_CLOSE" : "-"  ,  
-                    "IND" : 2        
-                },
-                {
-                    "WHO" : "IvanovVV",
-                    "REASON" : "2019-04-05_3213123",
-                    "TYPE" : "CLOSE",                      
-                    "CLOSE_DATE" : "2019-04-12_22",
-                    "TASK_CLOSE" : "-" ,
-                    "IND" : 3           
-                }        
-            ]
-        }
-    }
     innerClickHandler = (i) => {
         alert (i)
     }
@@ -62,7 +18,7 @@ class CTasks extends Component {
         let mm = [];
         let i = 0;
         let y = 0;
-        this.state.tasks.forEach ( (el) => {  
+        this.props.tasks.forEach ( (el) => {  
             if ( el.TASK_CLOSE === "-" ) {
                 switch ( el.TYPE ) {
                     case 'TRANSFER' : 
@@ -127,17 +83,16 @@ class CTasks extends Component {
                     className = 'AddTaskBut'>
                         AddNew Task
                     </Button>       
-                { this.genTasks() }
-                {/* <CUnclosedTasks 
-                    lef  = '660px'
-                    to = '10px'
-                    taskType = 'Close user'
-                    taskStart = '2019-04-03_20'
-                    taskInfo = 'Ivanov VV close'
-                    taskEnd = 'DZ 1512 by 2019-03-03'></CUnclosedTasks>                */}
+                { this.genTasks() }             
             </div>
         )
     }
 }
 
-export default CTasks
+let mapState = state => {
+    return {
+        tasks : state.tasks
+    }
+}
+
+export default connect (mapState) (CTasks)
