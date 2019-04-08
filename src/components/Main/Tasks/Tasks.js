@@ -9,6 +9,13 @@ import CAddTasks from './AddTask/AddTask';
 import { connect } from 'react-redux';
 
 class CTasks extends Component {    
+    constructor ( props ) {
+        super ( props );
+        this.state = {
+            addTaskVisible : '0',
+            addTaskBarText : 'Add New Task'
+        }
+    }
     genTasks = () => {        
         let mm = [];
         this.props.tasks.forEach ( (el) => {  
@@ -58,15 +65,25 @@ class CTasks extends Component {
         
         return mm;       
     }
+    switchAddTaskBar = () => {
+        let x = this.state.addTaskVisible === '0'? '1' : '0';
+        let y = this.state.addTaskBarText === 'Add New Task' ? 'Close bar' : 'Add New Task';
+        this.setState({ 
+            addTaskVisible : x,
+            addTaskBarText : y
+        })
+    }
     render () {
         return (
             <div className = 'Tasks'>
                 <Button
                     variant = 'danger'
-                    className = 'AddTaskBut'>
-                        AddNew Task
+                    className = 'AddTaskBut'
+                    onClick = { () => {this.switchAddTaskBar()} }>
+                        { this.state.addTaskBarText }
                     </Button>       
-                { this.genTasks() }             
+                { this.genTasks() }  
+                <CAddTasks visible = { this.state.addTaskVisible }/>           
             </div>
         )
     }
