@@ -31,7 +31,9 @@ class CAddTask extends Component {
     render() {
         return (
             <div >
-               <div className = 'AddTask'>                
+               <div 
+                className = 'AddTask'
+                style = { {'display' : this.props.visible} }>                
                     <CAddTaskClose />
                 </div>
             </div>

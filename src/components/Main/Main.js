@@ -32,7 +32,7 @@ class CMain extends Component {
                         eventKey="home" 
                         title="Rights"
                         className = 'Tab'>
-                        {/* <DisplayRights /> */}
+                        <DisplayRights />
                     </Tab>                
                 </Tabs>
             </div>

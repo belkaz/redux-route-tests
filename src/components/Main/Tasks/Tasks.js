@@ -12,7 +12,7 @@ class CTasks extends Component {
     constructor ( props ) {
         super ( props );
         this.state = {
-            addTaskVisible : '0',
+            addTaskVisible : 'none',
             addTaskBarText : 'Add New Task'
         }
     }
@@ -66,7 +66,7 @@ class CTasks extends Component {
         return mm;       
     }
     switchAddTaskBar = () => {
-        let x = this.state.addTaskVisible === '0'? '1' : '0';
+        let x = this.state.addTaskVisible === 'block'? 'none' : 'block';
         let y = this.state.addTaskBarText === 'Add New Task' ? 'Close bar' : 'Add New Task';
         this.setState({ 
             addTaskVisible : x,

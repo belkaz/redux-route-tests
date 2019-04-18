@@ -27,8 +27,7 @@ class DisplayRights extends Component {
       
     render() {
         return (
-            <div className = 'DisplayRights'
-            >
+            <div className = 'DisplayRights'>
                 { this.props.FIO } 
                 <PO0Panel rr = { this.state.po0 }/>
                 <PO1Panel rr = { this.state.po1 }/>
