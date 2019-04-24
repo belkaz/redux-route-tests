@@ -18,6 +18,7 @@ class CTasks extends Component {
     }
     genTasks = () => {        
         let mm = [];
+        
         this.props.tasks.forEach ( (el) => {  
             if ( el.TASK_CLOSE === "-" ) {
                 switch ( el.TYPE ) {
@@ -50,8 +51,7 @@ class CTasks extends Component {
                     {
                         mm.push(<CUnclosedTasks 
                             key = { el.IND }
-                            id = { el.IND }
-                           
+                            id = { el.IND }                           
                             taskType = "ЗАКРЫТЬ ПРАВА"
                             taskStart = { el.CLOSE_DATE }
                             taskInfo = { el.WHO }

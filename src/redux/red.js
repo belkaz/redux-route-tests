@@ -12,7 +12,7 @@ let redd = ( state = initState, action ) => {
         case 'ACLOSE_TASK' : 
             let tt = [];
             state.tasks.forEach( el => {
-                if (el.IND != action.idToClose) {
+                if (el.IND !== action.idToClose) {
                     tt.push (el)
                 }
             })     
@@ -20,7 +20,22 @@ let redd = ( state = initState, action ) => {
             return {
                 ...state, 
                 tasks : tt
-            }          
+            }  
+        case 'AADDCLOSE' :  
+            let newEl =  {
+                TYPE : 'CLOSE',
+                TASK_CLOSE : '-',
+                WHO : action.data.who,
+                REASON : action.data.reason,
+                CLOSE_DATE : action.data.when,
+                IND : state.tasks.length + 1
+            }   
+            let newArr = state.tasks
+            newArr.push (newEl)               
+            return {                
+                ...state,
+                tasks : newArr                               
+            }     
         default : return state            
     }
 }

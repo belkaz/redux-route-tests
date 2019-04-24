@@ -3,6 +3,15 @@ import  React, { Component } from 'react';
 import './AddTaskClose.sass';
 import { InputGroup, Button, FormControl} from 'react-bootstrap';
 
+import { connect } from 'react-redux';
+import AAddCloseTask from '../../../../../redux/actions/addCloseTask'
+import CTasks from '../../Tasks';
+let dat = {
+    reason : 'GASD',
+    who: 'Ivasasdasd',
+    when : '2019-04-04'
+}
+
 class CAddTaskClose extends Component {
     render() {
         return (
@@ -31,7 +40,10 @@ class CAddTaskClose extends Component {
                     </InputGroup>                    
                     <Button
                         variant = 'primary'
-                        className = 'ATCBut'>
+                        className = 'ATCBut'
+                        onClick = { () => { 
+                            this.props.tryAddCloseTask ( dat );                            
+                        }}>
                         Close user
                     </Button>
             </div>          
@@ -39,4 +51,14 @@ class CAddTaskClose extends Component {
     }
 }
 
-export default CAddTaskClose
+let mapState = state => {
+    return {}
+}
+
+let masDispatch = dispatch => {
+    return {
+        tryAddCloseTask: dat => dispatch ( AAddCloseTask (dat) )
+    }
+}
+
+export default connect(mapState, masDispatch) (CAddTaskClose)
