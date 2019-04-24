@@ -9,7 +9,7 @@ class PO1Panel extends Component {
         return (
             <div className = 'PO1Panel'>
                 <PO1Unit 
-                    val = {this.props.rr[0]} 
+                    val = {this.props.rr[0]}                     
                     unit = '1' 
                     lef = '10'/>
                 <PO1Unit 
