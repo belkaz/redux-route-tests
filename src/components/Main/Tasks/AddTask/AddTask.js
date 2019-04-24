@@ -1,7 +1,8 @@
 import React , { Component } from 'react';
 
 import './AddTask.sass';
-import { Dropdown } from 'react-bootstrap';
+import { Dropdown, Button } from 'react-bootstrap';
+import { InputGroup, FormControl } from 'react-bootstrap';
 
 import CAddTaskClose from './AddTaskClose/AddTaskClose';
 import CAddTaskTemp from './AddTaskTemp/AddTaskTemp';
@@ -59,7 +60,7 @@ class CAddTask extends Component {
                     <Dropdown.Toggle 
                         variant="success" 
                         id="dropdown-basic">
-                        Dropdown Button
+                        Select type of task
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
                         <Dropdown.Item 
@@ -73,6 +74,27 @@ class CAddTask extends Component {
                             onClick = { ()=> { this.TypeSelector( 1 ) }}>Close user</Dropdown.Item>
                     </Dropdown.Menu>
                     </Dropdown>
+                    <InputGroup size="sm" className="mb-3 ATText">
+                        <InputGroup.Prepend>
+                        <InputGroup.Text id="inputGroup-sizing-sm">FIO</InputGroup.Text>
+                        </InputGroup.Prepend>
+                        <FormControl aria-label="Small" aria-describedby="inputGroup-sizing-sm" />
+                    </InputGroup>
+                    <InputGroup 
+                        size="sm" className="mb-3 ATCode">
+                        <InputGroup.Prepend>
+                        <InputGroup.Text id="inputGroup-sizing-sm">CODE</InputGroup.Text>
+                        </InputGroup.Prepend>
+                        <FormControl 
+                            aria-label="Small" 
+                            aria-describedby="inputGroup-sizing-sm" 
+                            type = 'number'/>
+                    </InputGroup>
+                    <Button
+                        variant = 'primary'
+                        className = 'ATBut'>
+                        Search
+                    </Button>
                     { this.Switcher() }
                 </div>
             </div>
