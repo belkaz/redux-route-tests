@@ -28,7 +28,10 @@ class CAddTask extends Component {
             case 2 : {
                 this.setState({ ddText : 'Add rights'});
                 break;
-            }               
+            }       
+            default : {
+                
+            }        
         } 
     }
     Switcher = () => {
@@ -45,6 +48,9 @@ class CAddTask extends Component {
             case 'Add rights' : {
                 x = <CAddTaskTemp />;
                 break;
+            }
+            default : {
+                x = <CAddTaskTransfer />
             }
         }
         return x;

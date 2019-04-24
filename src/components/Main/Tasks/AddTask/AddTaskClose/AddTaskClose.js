@@ -5,8 +5,8 @@ import { InputGroup, Button, FormControl} from 'react-bootstrap';
 
 import { connect } from 'react-redux';
 import AAddCloseTask from '../../../../../redux/actions/addCloseTask'
-import CTasks from '../../Tasks';
 import ASwitchTask from '../../../../../redux/actions/switchTaskVisible';
+
 let dat = {
     reason : 'GASD',
     who: 'Ivasasdasd',
