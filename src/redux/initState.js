@@ -4,6 +4,7 @@ let initState = {
         nam : ''
     },
     curScreen : 'login',
+    showAddTask : 'none',
     tasks : [
         {
             "WHO" : "IvanovVV",

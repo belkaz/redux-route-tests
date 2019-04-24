@@ -35,7 +35,14 @@ let redd = ( state = initState, action ) => {
             return {                
                 ...state,
                 tasks : newArr                               
-            }     
+            }  
+        case 'ASWITCHTASK' : {
+            let xx = state.showAddTask === 'none' ? 'block' : 'none';
+            return {
+                ...state,
+                showAddTask : xx
+            }            
+        }   
         default : return state            
     }
 }

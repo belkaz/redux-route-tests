@@ -7,6 +7,7 @@ import CUnclosedTasks from './UnclosedTasks/UnclosedTasks';
 import CAddTasks from './AddTask/AddTask';
 
 import { connect } from 'react-redux';
+import ASwitchTask from '../../../redux/actions/switchTaskVisible';
 
 class CTasks extends Component {    
     constructor ( props ) {
@@ -65,11 +66,10 @@ class CTasks extends Component {
         
         return mm;       
     }
-    switchAddTaskBar = () => {
-        let x = this.state.addTaskVisible === 'block'? 'none' : 'block';
+    switchAddTaskBar = () => {        
         let y = this.state.addTaskBarText === 'Add New Task' ? 'Close bar' : 'Add New Task';
         this.setState({ 
-            addTaskVisible : x,
+            
             addTaskBarText : y
         })
     }
@@ -79,11 +79,11 @@ class CTasks extends Component {
                 <Button
                     variant = 'danger'
                     className = 'AddTaskBut'
-                    onClick = { () => {this.switchAddTaskBar()} }>
+                    onClick = { () => {this.props.tryToShowAddTask()} }>
                         { this.state.addTaskBarText }
                     </Button>       
                 { this.genTasks() }  
-                <CAddTasks visible = { this.state.addTaskVisible }/>           
+                <CAddTasks visible = { this.props.showAddTasks }/>           
             </div>
         )
     }
@@ -91,8 +91,14 @@ class CTasks extends Component {
 
 let mapState = state => {
     return {
-        tasks : state.tasks
+        tasks : state.tasks,
+        showAddTasks : state.showAddTask
+    }
+}
+let mapDispatch = dispatch => {
+    return {
+        tryToShowAddTask : () => { dispatch (ASwitchTask ())}
     }
 }
 
-export default connect (mapState) (CTasks)
+export default connect (mapState, mapDispatch) (CTasks)
