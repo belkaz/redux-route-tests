@@ -38,9 +38,11 @@ let redd = ( state = initState, action ) => {
             }  
         case 'ASWITCHTASK' : {
             let xx = state.showAddTask === 'none' ? 'block' : 'none';
+            let yy = state.addTaskButText === 'Add new task' ? 'Close bar' : 'Add new task';
             return {
                 ...state,
-                showAddTask : xx
+                showAddTask : xx,
+                addTaskButText : yy
             }            
         }   
         default : return state            

@@ -12,8 +12,7 @@ import ASwitchTask from '../../../redux/actions/switchTaskVisible';
 class CTasks extends Component {    
     constructor ( props ) {
         super ( props );
-        this.state = {
-            addTaskVisible : 'none',
+        this.state = {            
             addTaskBarText : 'Add New Task'
         }
     }
@@ -68,8 +67,7 @@ class CTasks extends Component {
     }
     switchAddTaskBar = () => {        
         let y = this.state.addTaskBarText === 'Add New Task' ? 'Close bar' : 'Add New Task';
-        this.setState({ 
-            
+        this.setState({             
             addTaskBarText : y
         })
     }
@@ -80,7 +78,7 @@ class CTasks extends Component {
                     variant = 'danger'
                     className = 'AddTaskBut'
                     onClick = { () => {this.props.tryToShowAddTask()} }>
-                        { this.state.addTaskBarText }
+                        { this.props.butText }
                     </Button>       
                 { this.genTasks() }  
                 <CAddTasks visible = { this.props.showAddTasks }/>           
@@ -92,7 +90,8 @@ class CTasks extends Component {
 let mapState = state => {
     return {
         tasks : state.tasks,
-        showAddTasks : state.showAddTask
+        showAddTasks : state.showAddTask,
+        butText : state.addTaskButText 
     }
 }
 let mapDispatch = dispatch => {

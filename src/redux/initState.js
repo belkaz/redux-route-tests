@@ -5,6 +5,7 @@ let initState = {
     },
     curScreen : 'login',
     showAddTask : 'none',
+    addTaskButText : 'Add new task',
     tasks : [
         {
             "WHO" : "IvanovVV",

@@ -6,6 +6,7 @@ import { InputGroup, Button, FormControl} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import AAddCloseTask from '../../../../../redux/actions/addCloseTask'
 import CTasks from '../../Tasks';
+import ASwitchTask from '../../../../../redux/actions/switchTaskVisible';
 let dat = {
     reason : 'GASD',
     who: 'Ivasasdasd',
@@ -42,7 +43,8 @@ class CAddTaskClose extends Component {
                         variant = 'primary'
                         className = 'ATCBut'
                         onClick = { () => { 
-                            this.props.tryAddCloseTask ( dat );                            
+                            this.props.tryAddCloseTask ( dat );    
+                            this.props.tryToShowAddTask ()                        
                         }}>
                         Close user
                     </Button>
@@ -57,7 +59,8 @@ let mapState = state => {
 
 let masDispatch = dispatch => {
     return {
-        tryAddCloseTask: dat => dispatch ( AAddCloseTask (dat) )
+        tryAddCloseTask: dat => dispatch ( AAddCloseTask (dat) ),
+        tryToShowAddTask : () => { dispatch (ASwitchTask ())}
     }
 }
 
